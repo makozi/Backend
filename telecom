@@ -1,3 +1,30 @@
+
+API description:
+
+get all phone numbers of a single customer
+
+API endpoint:
+GET 'https://domain.com/api/v2/userphoneno
+
+
+
+ $phoneno = phoneno::get($phonenoId, $apiContext);
+} catch (Exception $ex) {
+   res::resError("Get phoneno", "phoneno", null, null, $ex);
+    exit(1);
+}
+ res::resResult("Get phoneno", "phoneno", $phoneno->getId(), null, $phoneno);
+
+return $phoneno;
+
+
+
+
+
+
+
+
+
 API description:
 
 get all phone numbers
