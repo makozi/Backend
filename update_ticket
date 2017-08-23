@@ -13,7 +13,7 @@ $data = array(
 );
 $json_body = json_encode($data, JSON_FORCE_OBJECT | JSON_PRETTY_PRINT);
 $header[] = "Content-type: application/json";
-$connection = curl_init("$fd_domain/helpdesk/tickets/[ticket_id].json");
+$connection = curl_init("$fd_domain/tickets/[ticket_id].json");
 curl_setopt($connection, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($connection, CURLOPT_HTTPHEADER, $header);
 curl_setopt($connection, CURLOPT_HEADER, false);
