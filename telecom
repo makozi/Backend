@@ -1,0 +1,32 @@
+API description:
+
+get all phone numbers
+
+API endpoint:
+GET 'https://domain.com/api/v2/contacts
+
+
+function getContact($id, ContactM $model = null)
+    {
+        if ($id instanceof ContactM)
+        {
+            $model = $id;
+            $id = $model->getId();
+        }
+        $response = json_decode(
+            $this->restCall(
+                '/contacts/'.$id.'.json',
+                Rest::METHOD_GET
+            )
+        );
+        if (property_exists($response, 'errors'))
+            throw new \RuntimeException(
+                sprintf('Error: %s', $response->errors->error)
+            );
+        if ($model === null)
+            $model = new ContactM();
+        return $model->setAll(
+            $response
+        );
+    }
+}
